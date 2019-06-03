@@ -10,62 +10,98 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Personal CSS -->
+    <link rel="stylesheet" href="{% static 'core/js/slick/slick.css'%}">
+    <link rel="stylesheet" href="{% static 'core\js\slick\slick-theme.css'%}">
+
     <link rel="stylesheet" href="{% static 'core/css/style.css'%}">
   </head>
   <body>
-        <nav id="navBar" class="navbar navbar-dark fixed-top">
-            <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse " id="navLinks">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="#Me" class="nav-link">Me</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#Skills" class="nav-link">Skills</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#certifications" class="nav-link">Certifications</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#projects" class="nav-link">Projects</a>
-                    </li>
-
+        <aside class="nav-aside">
+                <ul class="nav-aside__list">
+                  <li>
+                    <button class="nav-aside__cta util-btn">
+                      <div class="nav-aside__line nav-aside__line--1"></div>
+                      <div class="nav-aside__line nav-aside__line--2"></div>
+                      <div class="nav-aside__line nav-aside__line--3"></div>
+                    </button>
+                  </li>
                 </ul>
-            </div>
-        </nav>
+                <!--   End of .nav-aside__list -->
+              </aside>
+              <!-- End of .nav-aside -->
+              
+              <nav class="navigation">
+                  <ul>
+                    <li><a class="js-anchor-link" onclick="animationReverse(4)" href="#Me" data-content="The beginning">Home</a></li>
+                    <li><a class="js-anchor-link" onclick="animationReverse(4)" href="#Skills" data-content="Learning....">Skills</a></li>
+                    <li><a class="js-anchor-link" onclick="animationReverse(4)" href="#certifications" data-content="Well something better than nothing">Certificates</a></li>
+                    <li><a class="js-anchor-link" onclick="animationReverse(4)" href="#projects" data-content="Not to many yet">Projects</a></li>
+                    <li><a class="js-anchor-link" onclick="animationReverse(4)" href="#" data-content="Don't hesitate">Contact</a></li>
+                  </ul>
+        
+              </nav>
+              <!-- End of .navigation -->
+    
+
         <section id="Me" class="container-fluid">
-            <h1 class="display-1 text-center pt-4">Lorry Driveloper</h1>
+            <h1 class="sectionHeader">Lorry Driveloper</h1>
+            <div id="avatar">
+            </div>
+            <p class="phrase">
+              In my way to my dream, meanwhile joining my actual work with my dream work as developer.
+            </p>
 
         </section>
-        <section id="Skills" class="container-fluid pt-4">
-            <h2 class="sectionHeader display-3  pt-5 saving">Things I am learning<span>.</span><span>.</span><span>.</span><span>.</span></h2>
-            <p class="phrase">Things than I am studying forever o until I master what goes first...</p>
-            <hr>
+         <section id="Skills" class="container-fluid">
+            <h2 class="sectionHeader saving">Things I am learning<span>.</span><span>.</span><span>.</span><span>.</span></h2>
+            <p class="phrase">Things than I am studying forever or until I master what goes first...</p>
             <div class="container">
                 <div class="row">
                     {% for obj in learning %}
-                        <div class="col-3 my-auto ">
-                            <img src='{{obj.icon.url}}' class="img-fluid " alt="">
+                        <div class="col-3 my-2 py-2 learn">
+                         <img src="{{obj.icon.url}}" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
                         </div> 
                     {% endfor %}     
                 </div>
             </div>
         </section>
-        <section id="certifications" class="container-fluid pt-4">
-            <h2 class="display-3 pt-5">Certifications</h2>
+       <section id="certifications" class="container-fluid">
+            <h2 class="sectionHeader">Certifications</h2>
+            <p class="phrase">Papers saying I archived something, better this than noting...</p>
+            
+            <div class="wrapper">
+              {% for obj in certifications %}
+                <div class="cert_container">
+                  <div class="cert_img" style="--my-color-var:url({{obj.cert_img.url}});">
+                    <img src="{{obj.cert_img.url}}" alt="">
+                  </div>
+                  <div class="cert_info">
+                    <h3>Technology</h3>
+                    <p>{{obj.cert_related}}</p>
+                    <hr>
+                    <h3>Organitation</h3>
+                    <p><a href="{{obj.organization.organization_url}}">DataCamp</a></p>
+                    <hr>
+                    <h3>Course Name</h3>
+                    <p>{{obj.name}}</p>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
         </section>
-        <section id="projects" class="container-fluid pt-4">
-            <h2 class="display-3 pt-5">My Projects</h2>
-        </section> 
-        
+        <section id="projects" class="container-fluid">
+          <h2 class="sectionHeader">Projects</h2>
+          
+        </section>
 
       
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+    <script src={% static 'core/js/slick/slick.min.js' %}></script>
+    <script src={% static 'core/js/code.js' %}></script>
+</body>
 </html>
