@@ -16,10 +16,10 @@
     <link rel="stylesheet" href="{% static 'core/css/style.css'%}">
   </head>
   <body>
-    <div class="preloader">
+    <!-- <div class="preloader">
         <div id="res_gauger">
             <div class="res_base">
-                <div><b><span class="estate_full">F</span></b></div>
+                <div><b><span class="estate_full">E</span></b></div>
                 <div><b></b></div>
                 <div><b></b></div>
                 <div><b></b></div>
@@ -29,14 +29,15 @@
                 <div><b></b></div>
                 <div><b></b></div>
                 <div><b></b></div>
-                <div><b><span class="estate_empty">E</span></b></div>
+                <div><b><span class="estate_empty">F</span></b></div>
             </div>
             <div class="line"></div>
             <div class="res_pin"><div class="inner"></div></div>
         </div>
 
-    </div>
+    </div> -->
 
+     <!-- End of Preloader -->
 
         <aside class="nav-aside">
                 <ul class="nav-aside__list">
@@ -70,13 +71,14 @@
             <div id="avatar">
             </div>
             <p class="phrase">
-              In my way to my dream, meanwhile joining my actual work with my dream work as developer.
+              In my way to my dream work, meanwhile joining my actual work with my dream work as developer.
             </p>
+            <p class="phrase"> I am a 38 year old lorry driver than always has dream to become a developer and past time writing code, but the live give me other path to follow and until now I didn't notice how wrong I was, never later for a U turn even for a big lorry.</p>
 
         </section>
          <section id="Skills" class="container-fluid">
             <h2 class="sectionHeader saving">Things I am learning<span>.</span><span>.</span><span>.</span><span>.</span></h2>
-            <p class="phrase">Things than I am studying forever or until I master what goes first...</p>
+            <p class="phrase">Things than I am studying forever or until I master what happens first...</p>
             <div class="container">
                 <div class="row">
                     {% for obj in learning %}
@@ -89,7 +91,7 @@
         </section>
        <section id="certifications" class="container-fluid">
             <h2 class="sectionHeader">Certifications</h2>
-            <p class="phrase">Papers saying I archived something, better this than noting...</p>
+            <p class="phrase">Papers saying I archived something, better this than nothing...</p>
             
             <div class="wrapper">
               {% for obj in certifications %}
@@ -100,10 +102,8 @@
                   <div class="cert_info">
                     <h3>Technology</h3>
                     <p>{{obj.cert_related}}</p>
-                    <hr>
                     <h3>Organitation</h3>
-                    <p><a href="{{obj.organization.organization_url}}">DataCamp</a></p>
-                    <hr>
+                    <p><a href="{{obj.organization.organization_url}}">{{obj.organization.name}}</a></p>
                     <h3>Course Name</h3>
                     <p>{{obj.name}}</p>
                   </div>
@@ -113,7 +113,11 @@
         </section>
         <section id="projects" class="container-fluid">
           <h2 class="sectionHeader">Projects</h2>
-          
+            {% for obj in projects %}
+              {% endfor %}
+
+
+
         </section>
 
       

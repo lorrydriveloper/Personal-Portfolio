@@ -8,9 +8,13 @@
 
 }
 
+@import url('https://fonts.googleapis.com/css?family=Bubblegum+Sans&display=swap');
 
 
-/*////////////////// PRELOADER FUEL GAUGE //////////////////////// */
+
+/* ====================================
+         Preloader Css
+    =================================== */
 
 .preloader{
   position: absolute;
@@ -212,7 +216,9 @@
   }
 }
 
-/* ////////// END PRELOADER GAUGE FUEL ////////////////////  */
+/* ====================================
+         End Preloader Css
+    =================================== */
 
 
 
@@ -227,7 +233,7 @@ body{
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
-    overflow: hidden;
+    /* overflow: hidden; */
     
 }
 section{
@@ -320,18 +326,10 @@ section{
   text-align: center;
 }
 
-hr{
-  border: 0;
-  height: 0; /* Firefox... */
-  box-shadow: 0 0 10px 1px black;
-}
-hr:after {  /* Not really supposed to work, but does */
-  content: "\00a0";  /* Prevent margin collapse */
-}
-
 .cert_info p{
   font-size: 3.5vw;
   text-align: center;
+  font-family: 'Bubblegum Sans', cursive;
 }
 
 .cert_info a:hover{
@@ -363,7 +361,7 @@ hr:after {  /* Not really supposed to work, but does */
   #avatar{
     float: none;
     margin: auto;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
 }
 

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from .models import Learning, Certification
+from .models import Learning, Certification, Project
 # Create your views here.
 
 
@@ -12,6 +12,5 @@ class IndexView(TemplateView):
         context = super().get_context_data(**kwargs)
         context["learning"] = Learning.objects.all()
         context['certifications'] = Certification.objects.all()
+        context['projects'] = Project.objects.all()
         return context
-    
-    

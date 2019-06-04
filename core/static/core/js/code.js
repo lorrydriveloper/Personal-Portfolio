@@ -1,14 +1,14 @@
-// preloaded animation to improve 
-$(window).on('load', function () {
-    $('.preloader').fadeOut(4500,function () {
-        $('body').css("overflow", "auto");
-    });
-},);
+// // preloaded animation to improve 
+// $(window).on('load', function () {
+//     $('.preloader').fadeOut(4500,function () {
+//         $('body').css("overflow", "auto");
+//     });
+// },);
 
-// To scroll on reload to the top an show animation
-window.onbeforeunload = function () {
-    window.scrollTo(0, 0);
-  }
+// // To scroll on reload to the top an show animation
+// window.onbeforeunload = function () {
+//     window.scrollTo(0, 0);
+//   }
 
 
 $(document).ready(function(){

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Learning, Organization, Certification
+from .models import Learning, Organization, Certification, Project
 
 # Register your models here.
 
@@ -16,4 +16,9 @@ class OrganizationAdmin(admin.ModelAdmin):
 
 @admin.register(Certification)
 class CertificationAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Project)
+class ProjectAdmin(admin.ModelAdmin):
     pass
