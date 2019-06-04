@@ -1,4 +1,18 @@
+// preloaded animation to improve 
+$(window).on('load', function () {
+    $('.preloader').fadeOut(4500,function () {
+        $('body').css("overflow", "auto");
+    });
+},);
+
+// To scroll on reload to the top an show animation
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  }
+
+
 $(document).ready(function(){
+    
     $('.wrapper').slick({
         dots:true,
         autoplay:true,
@@ -63,19 +77,3 @@ $('.js-anchor-link').click(function(e){
       $('body, html').animate({scrollTop: scrollTo+'px'}, 800);
     }
   });    
-
-
-// //Create a var to store the index of red element
-// var count = -1;
-// function ShowCert() {
-//   var cert = $('.cert_container');
-//   var certLength = cert.length - 1;
-//   //Check if the actual item isn't more than the length then add 1 otherwise restart to 0
-//   count < certLength ? count++ : count=0;
-//   //Remove the class and add it to the new target
-//   cert.hide(400).eq(count).show(400);
-// }
-// ShowCert();
-// setInterval(ShowCert, 5000);
-
-// var id = $('certifications')
