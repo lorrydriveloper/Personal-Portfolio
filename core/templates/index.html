@@ -96,7 +96,7 @@
             <div class="wrapper">
               {% for obj in certifications %}
                 <div class="cert_container">
-                  <div class="cert_img" style="--my-color-var:url({{obj.cert_img.url}});">
+                  <div class="cert_img" style="--var-to-css:url({{obj.cert_img.url}});">
                     <img src="{{obj.cert_img.url}}" alt="">
                   </div>
                   <div class="cert_info">
@@ -113,10 +113,34 @@
         </section>
         <section id="projects" class="container-fluid">
           <h2 class="sectionHeader">Projects</h2>
-            {% for obj in projects %}
-              {% endfor %}
+          <div class="slider_nav">
+            {% for project in projects %}
+
+            <div class="nav_button" style="--var-to-css:url({{project.screenshot.url}});">
+            <p class="centered">{{project.name}}</p>
+
+            </div>  
+              
+            
+            {% endfor %}
+          </div>
+
+          <div class="slider_for">
+            {% for project in projects %}
+              <div class="cert_container">
+                    <div class="cert_img" style="--var-to-css:url({{project.screenshot.url}});">
+                      <img src="{{project.screenshot.url}}" alt="Screenshot of the project {{project.name}}">
+                    </div>
+                    <div class="cert_info">
+                    
+                    </div>
+                  </div>
+            {% endfor %}
+          </div>
 
 
+        </section>
+        <section class="container-fluid" id="contact">
 
         </section>
 

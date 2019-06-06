@@ -17,6 +17,38 @@ $(document).ready(function(){
         dots:true,
         autoplay:true,
     });
+    $('.slider_for').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        asNavFor: '.slider_nav'
+      });
+      $('.slider_nav').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        asNavFor: '.slider_for',
+        dots: true,
+        centerMode: true,
+        focusOnSelect: true,
+        responsive: [
+            {
+              breakpoint: 860,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2
+              }
+            },
+            {
+              breakpoint: 575,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+              }
+            }
+          ]
+      });
+    
   });
 
 const toggleNav = document.querySelector('.util-btn');

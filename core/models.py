@@ -52,17 +52,15 @@ class Project(models.Model):
 
     name = models.CharField(_("name"), max_length=50)
     project_type = models.CharField(_("Type of project"), max_length=50, 
-                                    choices=[('commercial', 'commercial'),
-                                             ('personal', 'personal'),
-                                             ('volunteer', 'volunteer')])
-    technology = models.ForeignKey("Learning", verbose_name=_("Technology used"),
-                                   on_delete=models.CASCADE)
+                                    choices=[('commercial', 'Commercial'),
+                                             ('personal', 'Personal'),
+                                             ('volunteer', 'Volunteer'),
+                                             ('practice', 'Practice')])
+    technology = models.ManyToManyField("Learning", verbose_name=_("Techonology used"))
     website = models.URLField(_("Website"), max_length=200)
     screenshot = models.ImageField(_("Web screenshot"),
-                                  upload_to="img/screenshots")
-    
-
-    
+                                   upload_to="img/screenshots")
+    description = models.TextField(_("Description"), null=True)
 
     class Meta:
         verbose_name = _("project")
