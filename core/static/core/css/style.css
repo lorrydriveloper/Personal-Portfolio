@@ -546,7 +546,19 @@ background-image: var(--var-to-css);
   background-color: azure;
   position: absolute;
   overflow-y:auto;
+  display: flex;
 }
+.proj_header{
+  width: 30%;
+}
+.proj_links{
+  width: 30%;
+}
+
+.proj_links ul{
+    padding: 0;
+}
+
 
 }
 
