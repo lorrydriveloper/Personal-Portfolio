@@ -12,6 +12,35 @@
 
 
 $(document).ready(function(){
+
+  if (window.location.href.includes('Contact')) {
+    $('.successful').css('display', 'initial')
+  }
+
+  $( "#send" ).click(function() {
+    var plane = $( '#plane' );
+    var success = $('.successful');
+    flying();
+    function show_success(){
+      success.css('display', 'initial')
+      plane.css('color','green');
+
+    };
+
+    function flying() {
+      plane.animate({
+        'margin-left': '50%',       
+      
+      },1000, show_success)
+    }
+
+
+
+
+
+
+
+  });
     
     $('.wrapper').slick({
         dots:true,
@@ -48,7 +77,6 @@ $(document).ready(function(){
             }
           ]
       });
-    
   });
 
 const toggleNav = document.querySelector('.util-btn');
@@ -109,3 +137,5 @@ $('.js-anchor-link').click(function(e){
       $('body, html').animate({scrollTop: scrollTo+'px'}, 800);
     }
   });    
+
+

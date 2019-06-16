@@ -25,7 +25,7 @@ SECRET_KEY = 'p@n$k89aam)u!6gw429j09nmq28=ld^ssw@9f^$rso2*8@*!p-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -125,3 +125,13 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Email config to send form throw emails
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'LorryDriveloper@gmail.com'
+EMAIL_HOST_PASSWORD = 'Z2QRexbpJGPD8Ai'

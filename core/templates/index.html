@@ -9,14 +9,16 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/cdd7416981.js"></script>
     <!-- Personal CSS -->
     <link rel="stylesheet" href="{% static 'core/js/slick/slick.css'%}">
-    <link rel="stylesheet" href="{% static 'core\js\slick\slick-theme.css'%}">
+    <link rel="stylesheet" href="{% static 'core/js/slick/slick-theme.css'%}">
 
     <link rel="stylesheet" href="{% static 'core/css/style.css'%}">
   </head>
   <body>
-    <!-- <div class="preloader">
+
+    {% comment %} <div class="preloader">
         <div id="res_gauger">
             <div class="res_base">
                 <div><b><span class="estate_full">E</span></b></div>
@@ -35,7 +37,7 @@
             <div class="res_pin"><div class="inner"></div></div>
         </div>
 
-    </div> -->
+    </div>  {% endcomment %}
 
      <!-- End of Preloader -->
 
@@ -59,7 +61,7 @@
                     <li><a class="js-anchor-link" onclick="animationReverse(4)" href="#Skills" data-content="Learning....">Skills</a></li>
                     <li><a class="js-anchor-link" onclick="animationReverse(4)" href="#certifications" data-content="Well something better than nothing">Certificates</a></li>
                     <li><a class="js-anchor-link" onclick="animationReverse(4)" href="#projects" data-content="Not to many yet">Projects</a></li>
-                    <li><a class="js-anchor-link" onclick="animationReverse(4)" href="#" data-content="Don't hesitate">Contact</a></li>
+                    <li><a class="js-anchor-link" onclick="animationReverse(4)" href="#Contact" data-content="Don't hesitate">Contact</a></li>
                   </ul>
         
               </nav>
@@ -82,8 +84,8 @@
             <div class="container">
                 <div class="row">
                     {% for obj in learning %}
-                        <div class="col-3 my-2 py-2 learn">
-                         <img src="{{obj.icon.url}}" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+                        <div class="col-3 my-2 py-2">
+                         <img src="{{obj.icon.url}}" class="img-fluid toGrey" alt="{{obj.name}} icon">
                         </div> 
                     {% endfor %}     
                 </div>
@@ -105,7 +107,7 @@
                     <h3>Organitation</h3>
                     <p><a href="{{obj.organization.organization_url}}">{{obj.organization.name}}</a></p>
                     <h3>Course Name</h3>
-                    <p>{{obj.name}}</p>
+                    <p class='small_line'>{{obj.name}}</p>
                   </div>
                 </div>
               {% endfor %}
@@ -127,22 +129,101 @@
 
           <div class="slider_for">
             {% for project in projects %}
-              <div class="cert_container">
-                    <div class="cert_img" style="--var-to-css:url({{project.screenshot.url}});">
+              <div class="proj_container">
+                    <div class="proj_img" style="--var-to-css:url({{project.screenshot.url}});">
                       <img src="{{project.screenshot.url}}" alt="Screenshot of the project {{project.name}}">
                     </div>
-                    <div class="cert_info">
-                    
+                    <div class="proj_info">
+                      <div class='proj_header'>
+                        <h3>{{project.name}}</h3>
+                        <p>{{project.project_type}} Project</p>
+                      </div>
+                      <div class='proj_description'>
+                        <h3>Description</h3>
+                        <p>{{project.description}}</p>
+                      </div>
+                      <div>
+                      <div class='proj_links'>
+                        <h3>Links</h3>
+                        <ul>
+                          {% if project.website %}
+                            <li><a href="{{project.website}}"><i class="fas fa-globe-europe"></i>   Website</a> </li>
+                          {% endif %}
+                          {% if project.gitHub %}
+                            <li><a href="{{project.gitHub}}"><i class="fab fa-github"></i>    Source Code</a></li>
+                          {% endif %}
+                          
+                        </ul>
+                        
+                        
+                        
+                      </div>
+                        
+
+                      </div>
+                      
+                      
+                      <div class="technology">
+                        <div class="tech_heading">Tech Used : <span><i class="fas fa-truck-loading fa-flip-horizontal"></i> knowledge </span></div>
+                          <div class='tech_wrapper'>
+                          {% for tech in project.technology.all  %}
+                            <div class="tech" >
+                            <img src="{{tech.icon.url}}" alt="" sizes="" >
+                            </div>
+                          {% endfor %}
+                          </div>
+                      </div>
                     </div>
-                  </div>
+              </div>
             {% endfor %}
           </div>
 
 
         </section>
-        <section class="container-fluid" id="contact">
+
+        <section class="container-fluid" id="Contact">
+          <h2 class="sectionHeader">Contact Me</h2>
+          <p class="phrase">Always on Duty <i class="fas fa-cogs fa-sm  "></i></p>
+
+
+          <div class="container" style="margin-left:3vh">
+          <p class="successful">Thanks your message has been sent to a somewhere and I hope it will arrive to me <i class="fas fa-laugh-wink"></i></p>
+
+            <form method="post">
+            {% csrf_token %}
+              <div class="form-group row">
+                <label for="Content" class="col-12 col-form-label">Say SomeThing</label>
+                <div class="col-12">
+                  {{form.content}}
+                </div>
+              </div>
+              <div class="animated">
+                <button type="submit" id='send'>
+                <i id='plane' class="fa fa-paper-plane .plane" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="form-group">
+                <label for="Name" class="col-6 col-form-label">Name</label>
+                <div class="col-6">
+                  {{form.name}}
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email" class="col-6 col-form-label">email</label>
+                <div class="col-6">
+                  {{form.email}}
+                </div>
+              </div>
+            
+            </form>
+          </div>
 
         </section>
+
+        <footer>
+          <p>I leave my rights somewhere and I can find them, feel free to use them if you find them <i class="fas fa-copyright mini"></i> {% now "M-Y" %}</p>
+          <p>LorryDriveloper <i class="fas fa-trademark mini"></i></p>
+        </footer>
 
       
     <!-- Optional JavaScript -->
