@@ -291,8 +291,9 @@ section{
 
 .text {
   color: white;
-  font-size: 2rem;
-  position: absolute;
+  font-size: 2vw;
+  line-height: 2vw;
+  position: relative;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -458,7 +459,7 @@ background-image: var(--var-to-css);
     padding-right: 1vw;
 }
 
-#more, #less{
+.more, .less{
   color: rgba(255, 255, 255, 0.8);
   background-color: #363636;
   padding-left: 6px;
@@ -470,6 +471,7 @@ background-image: var(--var-to-css);
 .more_description{
   position: absolute;
   top: 0;
+  left: 0;
   background: black;
   color: white;
   line-height: 1.5vw;
@@ -490,9 +492,16 @@ background-image: var(--var-to-css);
    
 }
 .proj_info .proj_links ul li a {
-  font-size: 3vw;
+  font-size: 2.5vw;
   color: #0F0F0F;
 }
+
+.proj_info .proj_links ul li a:hover {
+  text-decoration: none;
+  transform:scale(1.2);
+  color: aqua;
+}
+
 
 .proj_container{
   height: -webkit-fill-available;
@@ -611,6 +620,18 @@ background-image: var(--var-to-css);
     text-align: center;
 }
 
+.proj_description{
+  z-index: 2;
+}
+
+.proj_info .proj_description p {
+  font-size: 2vw;
+  line-height: 1.8vw;
+  text-align: initial;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  z-index: 2;
+}
 
 }
 
@@ -842,15 +863,12 @@ button:focus{
     right: 0;
     bottom: 50px;
     text-transform: none;
-    font-family: 'Open sans', serif;
-    font-size: 300;
-    font-style: italic;
     letter-spacing: 0;
   }
 
   nav li a:hover{
     text-decoration: none;
-    transform: scale(1.1);
+    transform:scale(1.2);
     color: aqua;
   }
   

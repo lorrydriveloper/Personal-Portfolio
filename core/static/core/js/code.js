@@ -17,10 +17,10 @@ $(document).ready(function(){
 		$(this).toggleClass("show");
   });
   
-  $('#more').click(function () {
+  $('.more').click(function () {
     $('.more_description').slideToggle(1000);
   });
-  $('#less').click(function () {
+  $('.less').click(function () {
     $('.more_description').slideToggle(1000);
   });
 

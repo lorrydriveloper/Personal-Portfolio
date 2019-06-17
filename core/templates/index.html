@@ -75,7 +75,7 @@
             <p class="phrase">
               In my way to my dream work, meanwhile joining my actual work with my dream work as developer.
             </p>
-            <p class="phrase"> I am a 38 year old lorry driver than always has dream to become a developer and past time writing code, but the live give me other path to follow and until now I didn't notice how wrong I was, never later for a U turn even for a big lorry.</p>
+            <p class="phrase"> I am a 37 year old lorry driver than always has dream to become a developer and past time writing code, but the live give me other path to follow and until now I didn't notice how wrong I was, never later for a U turn even for a big lorry.</p>
 
         </section>
          <section id="Skills" class="container-fluid">
@@ -152,12 +152,12 @@
                       <div class='proj_description'>
                         <h3>Description</h3>
                         {% if project.description|length > 120 %}
-                          <p>{{project.description|truncatewords:30}}<span id="more">MORE</span></p>
+                          <p>{{project.description|truncatewords:30}}<span class="more">MORE</span></p>
                         {% else %}
                           <p>{{project.description}}</p>
                         {% endif %}
                         <div class='more_description'>
-                          {{project.description| safe}}    <span id="less">Less</span>
+                          {{project.description| safe}}    <span class="less">Less</span>
                         </div>
                       </div>
                       <div class='proj_links'>
