@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 from django.utils.translation import gettext as _
 
 # Create your models here.
@@ -8,6 +9,7 @@ class Learning(models.Model):
 
     name = models.CharField(_("name"), max_length=50)
     icon = models.ImageField(_("Icon"), upload_to="img/icons")
+    skills = RichTextField(_('skills'), max_length=200, null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 

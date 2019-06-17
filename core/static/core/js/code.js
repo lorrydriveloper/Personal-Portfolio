@@ -13,6 +13,18 @@
 
 $(document).ready(function(){
 
+  $(".overlay").hover(function(){
+		$(this).toggleClass("show");
+  });
+  
+  $('#more').click(function () {
+    $('.more_description').slideToggle(1000);
+  });
+  $('#less').click(function () {
+    $('.more_description').slideToggle(1000);
+  });
+
+
   if (window.location.href.includes('Contact')) {
     $('.successful').css('display', 'initial')
   }
@@ -33,13 +45,6 @@ $(document).ready(function(){
       
       },1000, show_success)
     }
-
-
-
-
-
-
-
   });
     
     $('.wrapper').slick({

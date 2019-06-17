@@ -272,7 +272,34 @@ section{
 .toGrey{
   filter: grayscale(85%)
 }
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-image: linear-gradient(to bottom, rgba(19, 17, 17, 0.89),  rgba(0, 0, 0, 0.808));
+}
 
+.show {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
 /* ====================================
         Certifications Section CSS
     =================================== */
@@ -430,6 +457,34 @@ background-image: var(--var-to-css);
     padding-left: 1vw;
     padding-right: 1vw;
 }
+
+#more, #less{
+  color: rgba(255, 255, 255, 0.8);
+  background-color: #363636;
+  padding-left: 6px;
+  font-size: 1.5vw;
+  padding-right: 6px;
+  cursor: pointer;
+}
+
+.more_description{
+  position: absolute;
+  top: 0;
+  background: black;
+  color: white;
+  line-height: 1.5vw;
+  height: -webkit-fill-available;
+  padding: 2% 2% 0 4%;
+  opacity: 1;
+  display: none;
+  font-size: 2.5vw;
+  line-height: 2vw;
+  text-align: initial;
+  z-index: 2;
+  overflow-y: auto;
+
+}
+
 .proj_info .proj_links ul{
    list-style-type: none;
    
@@ -490,22 +545,18 @@ background-image: var(--var-to-css);
   display: flex;
   flex-wrap: wrap;
   margin: auto;
+  padding-left: 1.5vw;
+
 }
 .tech_heading{
+  float: left;
   font-size: 5vw;
-  margin-top: 2.5vh;
   margin-left: 2vw;
   margin-right: 2vw;
-  float: left;
 }
 
-.tech_heading span{
-  position: absolute;
-  font-size: small;
-  bottom: 0;
-  margin-bottom: 1%;
-  color: #343536;
-  margin-left: 5%;
+.tech_heading>i{
+  color:inherit;
 }
 
 .tech{
@@ -535,11 +586,11 @@ background-image: var(--var-to-css);
     bottom: 0;
   }
 
-  .technology{
-    width: 100%;
-    height: auto;
-    left: inherit;
-  }
+.technology{
+  width: 100%;
+  height: auto;
+  left: inherit;
+}
 .proj_info{
   height: 25%;
   width: 100%;
@@ -549,14 +600,15 @@ background-image: var(--var-to-css);
   display: flex;
 }
 .proj_header{
-  width: 30%;
+  width: 100%;
 }
 .proj_links{
-  width: 30%;
+  width: 100%;
 }
 
 .proj_links ul{
     padding: 0;
+    text-align: center;
 }
 
 
