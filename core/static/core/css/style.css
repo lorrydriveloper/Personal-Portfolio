@@ -766,11 +766,11 @@ button:focus{
  font-size: 2rem;
  margin-bottom: 1rem;
 }
-.nav_icon a{
+a{
   color: inherit;
 }
 
-.nav_icon a:hover{
+a:hover{
   text-decoration: none;
   transform:scale(1.2);
   color: aquamarine;
