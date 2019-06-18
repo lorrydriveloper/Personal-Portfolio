@@ -33,8 +33,8 @@ class IndexView(FormView):
             email = EmailMessage(
                 form.cleaned_data.get('name'),
                 message,
-                'lorryDriveloper@gmail.com',
-                ['lorryDriveloper@gmail.com'],  # list of email receptors
+                'webcontact@lorrydriveloper.com',
+                ['webcontact@lorrydriveloper.com'],  # list of email receptors
                 headers={'Reply-To': form.cleaned_data.get('email')}
             )
             email.send()
