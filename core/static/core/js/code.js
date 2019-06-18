@@ -28,8 +28,10 @@ $(document).ready(function(){
   if (window.location.href.includes('Contact')) {
     $('.successful').css('display', 'initial')
   }
-
-  $( "#send" ).click(function() {
+if ($("input:empty").length == 0) {
+  
+}
+  $( "#contact_form" ).submit(function() {
     var plane = $( '#plane' );
     var success = $('.successful');
     flying();
@@ -41,9 +43,8 @@ $(document).ready(function(){
 
     function flying() {
       plane.animate({
-        'margin-left': '50%',       
-      
-      },1000, show_success)
+        'margin-left': '50%',
+      },800, show_success)
     }
   });
     
@@ -108,7 +109,7 @@ function animationReverse(x) {
     else{
         setTimeout(() => {
             navbar.classList.toggle('navigation--is-visible');
-            toggleNav.classList.toggle('nav-aside__cta--active');
+            toggleNav.classList.toggle('nav-aside_cta--active');
         }, 700);
     active = true;
         
@@ -118,7 +119,7 @@ function animationReverse(x) {
 toggleNav.addEventListener('click', () => {
     if(active){
         navbar.classList.toggle('navigation--is-visible');
-        toggleNav.classList.toggle('nav-aside__cta--active');
+        toggleNav.classList.toggle('nav-aside_cta--active');
         animation(0); 
         active = false;
         

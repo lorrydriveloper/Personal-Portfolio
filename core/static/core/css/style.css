@@ -231,6 +231,7 @@ body{
     background-size: cover !important;
     background-position: center;
     /* overflow: hidden; */
+    letter-spacing: 1px;
     
 }
 section{
@@ -727,274 +728,300 @@ footer p .fas.mini{
     =================================== */    
 
 
-
-/* TO refactor */
+/* ====================================
+          Navbar CSS
+=================================== */ 
 button:focus{
-    outline: none
+  outline: none
 }
 
-.util-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
+
+.nav-aside {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9), transparent);
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 3rem;
+  z-index: 100;
+}
+
+.nav-aside_list {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0.5em 0;
+}  
+
+.nav-aside_list li:first-of-type{
+  height: 100%;
+}
+
+.nav_icon{
+ color: #A4A4A4;
+ font-size: 2rem;
+ margin-bottom: 1rem;
+}
+.nav_icon a{
+  color: inherit;
+}
+
+.nav_icon a:hover{
+  text-decoration: none;
+  transform:scale(1.2);
+  color: aquamarine;
+}
+
+.util-btn {
+  all: unset;
+  cursor: pointer;
+}
+
+.nav-aside_cta {
+  font-size: 1.25rem;
+  width: 2em;
   
-  .util-btn {
-    all: unset;
-    cursor: pointer;
-  }
+}
+.nav-aside_cta--active .nav-aside_line--1 {
+  -webkit-transform: rotate(-45deg) translate(-7px, 6px);
+          transform: rotate(-45deg) translate(-7px, 6px);
+}
+.nav-aside_cta--active .nav-aside_line--2 {
+  opacity: 0;
+  -webkit-transform: translatex(0.5em);
+          transform: translatex(0.5em);
+}
+.nav-aside_cta--active .nav-aside_line--3 {
+  -webkit-transform: rotate(45deg) translate(-7px, -8px);
+          transform: rotate(45deg) translate(-7px, -8px);
+}
+.nav-aside_line {
+  background: #fff;
+  border-radius: 5em;
+  width: 77.5%;
+  height: 2px;
+  margin: 0.45em auto;
+  opacity: 1;
+  transition: all 300ms ease;
+}
+
+.navigation {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9), transparent);
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+  position: fixed;
+  transition: all 300ms ease;
+  -webkit-transform: translatex(-20em);
+          transform: translatex(-20em);
+  visibility: hidden;
+  width: 20em;
+  z-index: 50;
+}
+
+.navigation--is-visible {
+  -webkit-transform: translatex(0);
+          transform: translatex(0);
+  visibility: visible;
+}
+nav ul {
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  height: 20%;
+  overflow: hidden;
+  transform: translateX(-100%);
+}
+nav li a {
+  position: relative;
+  top: 30%;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  font-size: 2rem;
+}
+
+nav li a:before {
+  content: '';
+  width: 70px;
+  height: 2px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  z-index: 100;
+  transform: translateX(100%);
+  opacity: 0;
+  transition: all .2s linear;
+}
+
+nav li a:after {
+  content: attr(data-content);
+  font-size: 0.7rem;
+  transition: all .2s linear;
+  opacity: 0;
+  position: absolute;
+  z-index: 100;
+  color: #fff;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  left: 0;
+  right: 0;
+  bottom: 50px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+nav li a:hover{
+  text-decoration: none;
+  transform:scale(1.2);
+  color: aquamarine;
+}
+
+nav li a:hover:before {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+nav li a:hover:after {
+  transform: translateY(15px);
+  opacity: 1;
+}
+
+nav li:nth-of-type(1){background-color: #A4A4A4}
+nav li:nth-of-type(2){background-color:#787878}
+nav li:nth-of-type(3){background-color:#575757}
+nav li:nth-of-type(4){background-color: #2B2B2B}
+nav li:nth-of-type(5){background-color: #0F0F0F}
+
+.slide-in-nav-item {
+  animation: slide-in 0.4s linear 1 .2s both;
+}
+
+.slide-in-nav-item-reverse {
+  animation: slide-in-reverse .3s linear 1 .5s both;
+}
+/* ====================================
+        End Navbar CSS
+=================================== */  
+
+
+/* ====================================
+        Animation keyframes
+  =================================== */
   
-  .nav-aside {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9), transparent);
-    height: 100%;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 3rem;
-    z-index: 100;
-  }
-  .nav-aside__list {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: space-between;
-    list-style: none;
-    margin: 0;
-    padding: 0.5em 0;
-  }
-  .nav-aside__cta {
-    font-size: 1.25rem;
-    width: 2em;
-  }
-  .nav-aside__cta--active .nav-aside__line--1 {
-    -webkit-transform: rotate(-45deg) translate(-7px, 6px);
-            transform: rotate(-45deg) translate(-7px, 6px);
-  }
-  .nav-aside__cta--active .nav-aside__line--2 {
-    opacity: 0;
-    -webkit-transform: translatex(0.5em);
-            transform: translatex(0.5em);
-  }
-  .nav-aside__cta--active .nav-aside__line--3 {
-    -webkit-transform: rotate(45deg) translate(-7px, -8px);
-            transform: rotate(45deg) translate(-7px, -8px);
-  }
-  .nav-aside__line {
-    background: #fff;
-    border-radius: 5em;
-    width: 77.5%;
-    height: 2px;
-    margin: 0.45em auto;
-    opacity: 1;
-    transition: all 300ms ease;
-  }
-  
-  .navigation {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9), transparent);
-    display: flex;
-    flex-flow: column nowrap;
-    height: 100%;
-    position: fixed;
-    transition: all 300ms ease;
-    -webkit-transform: translatex(-20em);
-            transform: translatex(-20em);
-    visibility: hidden;
-    width: 20em;
-    z-index: 50;
-  }
-  
-  .navigation--is-visible {
-    -webkit-transform: translatex(0);
-            transform: translatex(0);
-    visibility: visible;
-  }
-  nav ul {
-    list-style: none;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  
-  nav ul li {
-    height: 20%;
-    overflow: hidden;
+@keyframes slide-in {
+  from {
+    -webkit-transform: translateX(-100%);
     transform: translateX(-100%);
   }
-  nav li a {
-    position: relative;
-    top: 30%;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-decoration: none;
-    display: block;
-    text-align: center;
-    font-size: 2rem;
+  to {
+    -webkit-transform: translateX(0);
+    transform: translateX(0)
   }
-  
-  nav li a:before {
-    content: '';
-    width: 70px;
-    height: 2px;
-    background-color: #fff;
-    position: absolute;
-    top: 50%;
-    right: 0;
-    z-index: 100;
-    transform: translateX(100%);
-    opacity: 0;
-    transition: all .2s linear;
-  }
-  
-  nav li a:after {
-    content: attr(data-content);
-    font-size: 0.7rem;
-    transition: all .2s linear;
-    opacity: 0;
-    position: absolute;
-    z-index: 100;
-    color: #fff;
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-    left: 0;
-    right: 0;
-    bottom: 50px;
-    text-transform: none;
-    letter-spacing: 0;
-  }
+}
 
-  nav li a:hover{
-    text-decoration: none;
-    transform:scale(1.2);
-    color: aqua;
+@keyframes slide-in-reverse {
+  from {
+    -webkit-transform: translateX(0);
+    transform: translateX(0)
   }
-  
-  nav li a:hover:before {
-    transform: translateX(0);
-    opacity: 1;
+  to {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%)
   }
-  
-  nav li a:hover:after {
-    transform: translateY(15px);
-    opacity: 1;
-  }
-  
-  nav li:nth-of-type(1){background-color: #A4A4A4}
-  nav li:nth-of-type(2){background-color:#787878}
-  nav li:nth-of-type(3){background-color:#575757}
-  nav li:nth-of-type(4){background-color: #2B2B2B}
-  nav li:nth-of-type(5){background-color: #0F0F0F}
-  
-  .slide-in-nav-item {
-    animation: slide-in 0.4s linear 1 .2s both;
-  }
-  
-  
-  
-  .slide-in-nav-item-reverse {
-    animation: slide-in-reverse .3s linear 1 .5s both;
-  }
-/* ====================================
-         Animation keyframes
-    =================================== */
-  
-  @keyframes slide-in {
-      from {
-        -webkit-transform: translateX(-100%);
-        transform: translateX(-100%);
-      }
-      to {
-        -webkit-transform: translateX(0);
-        transform: translateX(0)
-      }
-    }
-    
-    @keyframes slide-in-reverse {
-      from {
-        -webkit-transform: translateX(0);
-        transform: translateX(0)
-      }
-      to {
-        -webkit-transform: translateX(-100%);
-        transform: translateX(-100%)
-      }
-    }
+}
 
 @keyframes blink {
   /**
-   * At the start of the animation the dot
-   * has an opacity of .2
-   */
+  * At the start of the animation the dot
+  * has an opacity of .2
+  */
   0% {
-    opacity: .2;
+  opacity: .2;
   }
   /**
-   * At 20% the dot is fully visible and
-   * then fades out slowly
-   */
+  * At 20% the dot is fully visible and
+  * then fades out slowly
+  */
   20% {
-    opacity: 1;
+  opacity: 1;
   }
   /**
-   * Until it reaches an opacity of .2 and
-   * the animation can start again
-   */
+  * Until it reaches an opacity of .2 and
+  * the animation can start again
+  */
   100% {
-    opacity: .2;
+  opacity: .2;
   }
-}
+  }
 
-#Skills span {
-  letter-spacing: 2px;
+  #Skills span {
+  letter-spacing: 4px;
   /**
-   * Use the blink animation, which is defined above
-   */
+  * Use the blink animation, which is defined above
+  */
   animation-name: blink;
   /**
-   * The animation should take 1.4 seconds
-   */
+  * The animation should take 1.4 seconds
+  */
   animation-duration: 1.4s;
   /**
-   * It will repeat itself forever
-   */
+  * It will repeat itself forever
+  */
   animation-iteration-count: infinite;
   /**
-   * This makes sure that the starting style (opacity: .2)
-   * of the animation is applied before the animation starts.
-   * Otherwise we would see a short flash or would have
-   * to set the default styling of the dots to the same
-   * as the animation. Same applies for the ending styles.
-   */
+  * This makes sure that the starting style (opacity: .2)
+  * of the animation is applied before the animation starts.
+  * Otherwise we would see a short flash or would have
+  * to set the default styling of the dots to the same
+  * as the animation. Same applies for the ending styles.
+  */
   animation-fill-mode: both;
-}
+  }
 
-#Skills span:nth-child(2) {
+  #Skills span:nth-child(2) {
   /**
-   * Starts the animation of the third dot
-   * with a delay of .2s, otherwise all dots
-   * would animate at the same time
-   */
+  * Starts the animation of the third dot
+  * with a delay of .2s, otherwise all dots
+  * would animate at the same time
+  */
   animation-delay: .2s;
-}
+  }
 
 #Skills span:nth-child(3) {
-  /**
-   * Starts the animation of the third dot
-   * with a delay of .4s, otherwise all dots
-   * would animate at the same time
-   */
-  animation-delay: .4s;
+/**
+* Starts the animation of the third dot
+* with a delay of .4s, otherwise all dots
+* would animate at the same time
+*/
+animation-delay: .4s;
 }#Skills span:nth-child(4) {
-  /**
-   * Starts the animation of the third dot
-   * with a delay of .4s, otherwise all dots
-   * would animate at the same time
-   */
-  animation-delay: .6s;
+/**
+* Starts the animation of the third dot
+* with a delay of .4s, otherwise all dots
+* would animate at the same time
+*/
+animation-delay: .6s;
 }    
+
+
+
+
+
 
 
 

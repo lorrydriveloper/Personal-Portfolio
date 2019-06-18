@@ -42,16 +42,20 @@
      <!-- End of Preloader -->
 
         <aside class="nav-aside">
-                <ul class="nav-aside__list">
+                <ul class="nav-aside_list">
                   <li>
-                    <button class="nav-aside__cta util-btn">
-                      <div class="nav-aside__line nav-aside__line--1"></div>
-                      <div class="nav-aside__line nav-aside__line--2"></div>
-                      <div class="nav-aside__line nav-aside__line--3"></div>
+                    <button class="nav-aside_cta util-btn">
+                      <div class="nav-aside_line nav-aside_line--1"></div>
+                      <div class="nav-aside_line nav-aside_line--2"></div>
+                      <div class="nav-aside_line nav-aside_line--3"></div>
                     </button>
-                  </li>
+                  </li> 
+                  <li class='nav_icon'><a href="https://twitter.com/LorryDriveloper"><i class="fab fa-twitter"></i></a></li>
+                  <li class='nav_icon'><a href="https://github.com/reddevilcero"><i class="fab fa-github"></i></a></li>
+                  <li class='nav_icon'><a href="https://www.freecodecamp.org/reddevil_cero"><i class="fab fa-free-code-camp"></i></a></li>
                 </ul>
                 <!--   End of .nav-aside__list -->
+                
               </aside>
               <!-- End of .nav-aside -->
               
@@ -104,7 +108,7 @@
         </section>
        <section id="certifications" class="container-fluid">
             <h2 class="sectionHeader">Certifications</h2>
-            <p class="phrase">Papers saying I archived something, better this than nothing...</p>
+            <p class="phrase">A total of {{certifications| length}} certifications saying I archived something, better this than nothing...</p>
             
             <div class="wrapper">
               {% for obj in certifications %}
@@ -199,9 +203,9 @@
 
 
           <div class="container" style="margin-left:3vh">
-          <p class="successful">Thanks your message has been sent to a somewhere and I hope it will arrive to me <i class="fas fa-laugh-wink"></i></p>
+          <p class="successful">Thanks your message has been sent to somewhere and I hope it will arrive to me <i class="fas fa-laugh-wink"></i></p>
 
-            <form method="post">
+            <form method="post" id='contact_form'>
             {% csrf_token %}
               <div class="form-group row">
                 <label for="Content" class="col-12 col-form-label">Say SomeThing</label>
