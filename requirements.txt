@@ -1,3 +1,11 @@
-django>=2.0.11
+certifi==2019.3.9
+Django==2.2
+django-ckeditor==5.6.1
 django-cleanup==3.1.0
-django-ckeditor
+django-hitcount==1.3.0
+django-js-asset==1.2.2
+pep8==1.7.1
+Pillow==5.3.0
+pytz==2019.1
+sqlparse==0.3.0
+wincertstore==0.2
